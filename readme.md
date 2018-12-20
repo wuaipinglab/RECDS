@@ -37,7 +37,7 @@ c) Installing scikit-learn
     (http://scikit-learn.org/stable/install.html);
     In the download webpage https://pypi.org/project/scikit-learn/0.18.2/, you can downlod scikit-learn-0.17.tar.gz by the link: scikit-learn-0.17.tar.gz (md5)
     or  
-&ensp;&ensp;>wget https://files.pythonhosted.org/packages/26/c2/21c612f3a1b1ba97b7b4bbd1fcdc59b475a09e25efad13fec4565ab9d563/scikit-learn-0.18.2.tar.gz   
+&ensp;&ensp;&ensp;>wget https://files.pythonhosted.org/packages/26/c2/21c612f3a1b1ba97b7b4bbd1fcdc59b475a09e25efad13fec4565ab9d563/scikit-learn-0.18.2.tar.gz   
 &ensp;&ensp;ii) > tar zxvf scikit-learn-0.18.2.tar.gz  
 &ensp;&ensp;&ensp;> cd scikit-learn-0.18.2  
 &ensp;&ensp;&ensp;To install in your directory use:  
