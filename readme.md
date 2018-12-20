@@ -39,8 +39,8 @@ c) Installing scikit-learn
     or  
 &ensp;&ensp;>wget https://files.pythonhosted.org/packages/26/c2/21c612f3a1b1ba97b7b4bbd1fcdc59b475a09e25efad13fec4565ab9d563/scikit-learn-0.18.2.tar.gz   
 &ensp;&ensp;ii) > tar zxvf scikit-learn-0.18.2.tar.gz  
-&ensp;&ensp;&ensp;&ensp;> cd scikit-learn-0.18.2  
-&ensp;&ensp;&ensp;&ensp;To install in your directory use:  
-&ensp;&ensp;&ensp;&ensp;> python setup.py install --prefix $yourpath  
+&ensp;&ensp;&ensp;> cd scikit-learn-0.18.2  
+&ensp;&ensp;&ensp;To install in your directory use:  
+&ensp;&ensp;&ensp;> python setup.py install --prefix $yourpath  
 
 d) Beyongd that, you also need to install other popular softwars, such as Modeller (https://salilab.org/modeller/), dssp for SA and biopython-1.70 for import HSExposure   
