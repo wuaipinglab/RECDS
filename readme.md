@@ -5,7 +5,7 @@ When you use it you should modify python script files and set some paths based o
 
 
 Third-party software installation:  
-While the majority of programs in the package 'code' are developed in the Aiping Lab 
+While the majority of programs in the package 'code' are developed in the Aiping Wu lab 
 here in the permission of use is released, there are some programs and databases which 
 were developed by third-party groups. You may experience installation problems, please check the third-party websites.   
 
