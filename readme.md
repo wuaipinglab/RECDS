@@ -223,4 +223,4 @@ c) Installing scikit-learn
 &ensp;&ensp;&ensp;To install in your directory use:  
 &ensp;&ensp;&ensp;> python setup.py install --prefix $yourpath  
 
-d) Beyond that, you also need to install other popular softwars, such as Modeller (https://salilab.org/modeller/), dssp for SA and biopython-1.70 for import HSExposure   
+d) Beyond that, you also need to install other popular softwares, such as Modeller (https://salilab.org/modeller/), dssp for SA and biopython-1.70 for import HSExposure   
