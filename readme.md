@@ -3,7 +3,7 @@
 RECDS evaluate the contribution of a specific amino acid site on the HA protein in the whole history of antigenic evolution.
 In RECDS, we ranked all of the HA sites by calculating the contribution scores derived from the forest of gradient boosting classifiers trained by various sequence-based and structure-based features. 
 
-Copyright of RECDS scripts in code dir,including how to extract features, train model and color trees, are reseved by Aiping Wu lab.
+Copyright of RECDS scripts in code dir, including how to extract features, train model and color trees, are reserved by Aiping Wu lab.
 When you use it you should modify python script files and set some paths based on your computing environment and third-party software installation.  
 
 This directory contains the following subdirectories:
@@ -46,7 +46,7 @@ This directory contains the following subdirectories:
 
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;as following: 
 
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;“./2_1_run_Modeler.py dir/seqName #build modeler strucutre;
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;“./2_1_run_Modeler.py dir/seqName #build modeler structure;
 
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;./2_2_get_pdb.py dir/seqName dir/Modeler dir/newModeler #rename modeler model name;”
 
@@ -223,4 +223,4 @@ c) Installing scikit-learn
 &ensp;&ensp;&ensp;To install in your directory use:  
 &ensp;&ensp;&ensp;> python setup.py install --prefix $yourpath  
 
-d) Beyongd that, you also need to install other popular softwars, such as Modeller (https://salilab.org/modeller/), dssp for SA and biopython-1.70 for import HSExposure   
+d) Beyond that, you also need to install other popular softwars, such as Modeller (https://salilab.org/modeller/), dssp for SA and biopython-1.70 for import HSExposure   
