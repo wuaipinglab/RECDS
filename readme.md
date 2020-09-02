@@ -11,37 +11,37 @@ The repo contains the following directories:
 
 ## 1. dataset
 
-## a) H3N2AntigenicCluster.strains
+### a) H3N2AntigenicCluster.strains
 The strain names of A/H3N3 used by `RECDS`
 
-## b) H3N2/source
+### b) H3N2/source
 Seven antigenic clusters derived from Smith’s studies (Koel, B.F., et al. Substitutions near the receptor binding site determine major antigenic change during influenza virus evolution. Science 2013;342(6161):976-979.) including raw HA1 protein sequences.
 
-## c) H3N2/nonredundant
+### c) H3N2/nonredundant
 The sequences after removing redundant HA1 protein sequences and sequence alignment.
 
-## d) H1N1AntigenicCluster.strains
+### d) H1N1AntigenicCluster.strains
 The strain names of A/H1N1 used by `RECDS`
 
-## e) H1N1/source
+### e) H1N1/source
 Seven antigenic clusters derived from our previous studies (Liu, M., et al. Antigenic Patterns and Evolution of the Human Influenza A (H1N1) Virus. Sci Rep 2015;5:14171.) including raw HA1 protein sequences.
 
-## f) H1N1/nonredundant
+### f) H1N1/nonredundant
 The sequences after removing redundant HA1 protein sequences and sequence alignment.
 
 
 
 ## 2. code/sourceCode
 
-## a) script
+### a) script
 The source code of `RECDS` including features extracting, GBC model training and phylogenetic tree coloring.
 
-### i.Features extracting: 
+#### i.Features extracting: 
 
-
-1) `1_PIMAscore.py` for calculating PIMA score, in which the executive command as following: 
-
-`./script/1_PIMAscore.py dir/dData dir/features/dPIMA`;
+```bash
+# Calculate PIMA score
+./script/1_PIMAscore.py dir/dData dir/features/dPIMA
+```
 
 ---- `dir/dData` is the virus pairs name and you can find its example format in `InputH3N2Example`;
 
@@ -50,11 +50,11 @@ The source code of `RECDS` including features extracting, GBC model training and
 ---- to modify `1_PIMAscore.py` file and set “seqin” path which contains virus sequences named by `dData`;
 
 
-2) `2_1_run_Modeler.py` and `2_2_get_pdb.py` for building MODELER structure, in which the executive command as following: 
-
-`./2_1_run_Modeler.py dir/seqName #build modeler structure`;
-
-`./2_2_get_pdb.py dir/seqName dir/Modeler dir/newModeler #rename modeler model name`;
+```bash
+# Build MODELER structure
+./2_1_run_Modeler.py dir/seqName # build modeler structure
+./2_2_get_pdb.py dir/seqName dir/Modeler dir/newModeler # rename modeler model name
+```
 
 ---- `seqNmae` is the virus name and you can find its example format in `InputH3N2Example`;
 
@@ -64,12 +64,10 @@ The source code of `RECDS` including features extracting, GBC model training and
 
 ---- `dir/newModeler` is the rename output file of Modeler structure;
 
-
-3) `3_1_runDssp.py` and `3_2_get_dssp.py` for relative solvent accessibility, in which the executive command as following: 
-
-`./3_1_runDssp.py dir/seqMap`;
-
-`./3_2_get_dssp.py dir/dData dir/features/dDssp`;
+```bash
+./3_1_runDssp.py dir/seqMap # calculate relative solvent accessibility
+./3_2_get_dssp.py dir/dData dir/features/dDssp # retrieve result
+```
 
 ---- `dir/seqMap` contains the virus name and you can find its example format in `InputH3N2Example`;
 
@@ -80,11 +78,10 @@ The source code of `RECDS` including features extracting, GBC model training and
 ---- to modify `3_2_get_dssp.py` file and set dsspfile path to outdir for dssp resuls in `3_1_runDssp.py`;
 
 
-4) `4_1_run_ddG.py` and `4_2_get_ddG.py` for protein stability change, in which the executive command as following:
-
-`./4_1_run_ddG.py dir/dData dir/dSEF`;
-
-`./4_2_get_dssp.py dir/dData dir/features/dSEF`
+```bash
+./4_1_run_ddG.py dir/dData dir/dSEF # calculate protein stability change
+./4_2_get_ddG.py dir/dData dir/features/dSEF # retrieve result
+```
 
 ---- `dir/dSEF` output file for ddG; 
 
@@ -95,11 +92,10 @@ The source code of `RECDS` including features extracting, GBC model training and
 ---- to modify `4_2_get_dssp.py` file and set ddGDir path to outdir for SEF resuls in `4_1_run_ddG.py`;
 
 
-5) `5_1_runHSE.py` and `5_2_get_HSE.py` for half-sphere exposure (HSE)-up, in which the executive command as following: 
-
-`./5_1_runHSE.py dir/dData`;
-
-`./5_2_get_HSE.py dir/dData dir/features/dHSE`
+```bash
+./5_1_runHSE.py dir/dData # calculate half-sphere exposure (HSE)-up
+./5_2_get_HSE.py dir/dData dir/features/dHSE # retrieve result
+```
 
 ---- to modify `5_1_runHSE.py` file and set some paths which contains outdir for HSE resuls and ModeDir for `dir/newModeler`;
 
@@ -108,11 +104,10 @@ The source code of `RECDS` including features extracting, GBC model training and
 ---- to modify `5_2_get_HSE.py` file and set hsefile path to outdir for HSE resuls in `5_1_runHSE.py`;
 
 
-6) `6_1_run_Amber.py`	and `6_2_get_Amber.py` for Van der Waals energy and the non-polar solvation energy changes, in which the executive command as following: 
-
-`./6_1_run_Amber.py 10000 dir/amber/10000 dir/newModeler`;
-
-`./6_2_get_Amber.py dir/dData dir/features/dAmber`;
+```bash
+./6_1_run_Amber.py 10000 dir/amber/10000 dir/newModeler # Van der Waals energy and the non-polar solvation energy changes
+./6_2_get_Amber.py dir/dData dir/features/dAmber # retrieve result
+```
 
 ---- `10000` is modeler model name;
 
@@ -128,10 +123,9 @@ The source code of `RECDS` including features extracting, GBC model training and
 
 ---- to modify `6_2_get_Amber.py` file and set amberfile path to outdir for amber resuls in `6_1_run_Amber.py`;
 
-
-7) `7_merge_dfeature.py` for merging six different features, in which the executive command as following:
-
-`./7_merge_feature.py dir/dFeatures`;
+```bash
+./7_merge_feature.py dir/dFeatures # merge six different features
+```
 
 ---- `dir/dFeatures` is output dir;
 
@@ -140,9 +134,9 @@ The source code of `RECDS` including features extracting, GBC model training and
 
 #### ii. Train GBC model
 
-1) `8_siteImportance.py` for calculating contribution score for every amino acid position, in which the executive command as following:
-
-`8_siteImportance dir/dFeatures dir/sFeatures dir/train/allImportance`;
+```bash
+8_siteImportance dir/dFeatures dir/sFeatures dir/train/allImportance # calculate contribution score for every amino acid position
+```
 
 ---- `dir/dFeatures` is features file for antigenically different virus pairs;
 
@@ -151,7 +145,7 @@ The source code of `RECDS` including features extracting, GBC model training and
 ---- `dir/train/allImportance` is score output file.
 
 
-2) `9_cross_train.py` and `siteImportance_diffComb.py` is similar with `8_siteImportance.py` and they are our experiment scripts.
+---- `9_cross_train.py` and `siteImportance_diffComb.py` is similar with `8_siteImportance.py` and they are our experiment scripts.
 
 
 #### iii. Custom-made phylogenetic analysis.
@@ -160,18 +154,18 @@ The source code of `RECDS` including features extracting, GBC model training and
 
 
 ## b) python
-Scripts that will be used in the source code of `RECDS` (`code/Script`)
+Scripts that will be used in `code/sourceCode`
 
 
 
-### 3. tools
+## 3. tools
 
-Tools that will be used in the source code of `RECDS` (`code/Script`)
+Tools that will be used in `code/sourceCode`
 
 
 
 ## Third-party software installation:  
-While the majority of programs in the package `code` are developed in the Aiping Wu lab here in the permission of use is released, there are some programs and databases which were developed by third-party groups. You may experience nstallation problems, please check the third-party websites.   
+While the majority of programs in the package `code/sourceCode` are developed in the Aiping Wu lab here in the permission of use is released, there are some programs and databases which were developed by third-party groups. You may experience nstallation problems, please check the third-party websites.   
 
 ### a) SEF
 We calculated ∆∆G denoting a protein stability change upon the single point mutation through the statistical energy function (SEF). This software is developed by Xiong Peng, and he modified application program interfaces (APIs) from original program for our use. So, the input is very simple, which just need protein structure and mutation information (wild type, position, mutant type). We have obtained his approval to open his modified software with our works and its software can be downloaded at https://drive.google.com/open?id=1Hls89AV6r5DNMXyDfC-qv4YhxkW_iaov. If you use SEF, please kindly cite as following:  
