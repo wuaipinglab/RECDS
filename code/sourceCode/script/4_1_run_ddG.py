@@ -5,7 +5,7 @@ import sys
 sys.path.insert(1,'/gluster/home/liquan/tools/python')
 import scSef,preparation
 
-./4_1_run_ddG.py dData dSEF
+# ./4_1_run_ddG.py dData dSEF
 
 featureList = {}
 fin = open(sys.argv[1],"r")
