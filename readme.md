@@ -156,7 +156,7 @@ We calculated ∆∆G denoting a protein stability change upon the single point 
 _Xiong, P., et al., Protein design with a comprehensive statistical energy function and boosted by experimental selection for foldability. Nat Commun, 2014. 5: p. 5330_
 
 ### Install Amber  
-Fill out the form from http://ambermd.org/AmberTools14-get.html and click Download.   
+Fill out the form from http://ambermd.org/GetAmber.php and click Download.   
 ```bash
 tar -jxvf AmberTools14.tar.bz2  
 rm AmberTools14.tar.bz2  

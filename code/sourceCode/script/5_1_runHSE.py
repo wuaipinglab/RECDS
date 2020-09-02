@@ -13,15 +13,11 @@ sys.path.insert(1,'/gluster/home/liquan/tools/python')
 import preparation
 
 
+pdbNameFile = open(sys.argv[1],'r')
+outDir = "/gluster/home/liquan/antigenicTransition/myProgram/database/features/HSE"
+modelDir = '/gluster/home/liquan/antigenicTransition/myProgram/database/Modeler'
 
 if __name__ == '__main__':
-	
-	pdbNameFile = open(sys.argv[1],'r')
-
-    outDir = "/gluster/home/liquan/antigenicTransition/myProgram/database/features/HSE"
-
-	modelDir = '/gluster/home/liquan/antigenicTransition/myProgram/database/Modeler'
-
 	fastalist = pdbNameFile.read().strip().split('\n')
 	fastaNum = len(fastalist)
 	for i in range(fastaNum):
