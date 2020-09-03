@@ -102,7 +102,7 @@ Including the PIMA score and other metrics calculated from predicted 3D structur
 
 #### Energy changes
 
-1. Modify `6_1_Amber.py` file and set some paths
+1. Modify `6_1_run_Amber.py` file and set some paths
 2. `10000` is modeler model name
 3. `dir/amber/10000` is output dir
 4. `dir/newModeler` is modeler structure dir
@@ -158,26 +158,25 @@ _Xiong, P., et al., Protein design with a comprehensive statistical energy funct
 ### Install Amber  
 Fill out the form from http://ambermd.org/GetAmber.php and click Download.   
 ```bash
-tar -jxvf AmberTools14.tar.bz2  
-rm AmberTools14.tar.bz2  
-cd amber14   
-vim ~/.bashrc  
-echo "export AMBERHOME=$yourpath/amber14" >> ~/.bashrc  
-source ~/.bashrc  
-sudo apt-get install csh flex gfortran g++ xorg-dev zlib1g-dev libbz2-dev patch python-tk python-matplotlib  
-./configure gnu  
-source amber.sh  
-make install  
+tar -jxvf AmberTools14.tar.bz2
+rm AmberTools14.tar.bz2
+cd amber14
+echo "export AMBERHOME=$yourpath/amber14" >> ~/.bashrc
+source ~/.bashrc
+sudo apt-get install csh flex gfortran g++ xorg-dev zlib1g-dev libbz2-dev patch python-tk python-matplotlib
+./configure gnu
+source amber.sh
+make install
 make test  # which will run tests and will report successes or failures
 ```
 
 ### Install scikit-learn  
 `scikit-learn` requires: `Python` (>= 2.6 or >= 3.3), `NumPy` (>= 1.6.1), `SciPy` (>= 0.9); Here is one way to install
 ```bash
-wget https://files.pythonhosted.org/packages/26/c2/21c612f3a1b1ba97b7b4bbd1fcdc59b475a09e25efad13fec4565ab9d563/scikit-learn-0.18.2.tar.gz   
-tar zxvf scikit-learn-0.18.2.tar.gz  
-cd scikit-learn-0.18.2  
+wget https://files.pythonhosted.org/packages/26/c2/21c612f3a1b1ba97b7b4bbd1fcdc59b475a09e25efad13fec4565ab9d563/scikit-learn-0.18.2.tar.gz
+tar zxvf scikit-learn-0.18.2.tar.gz
+cd scikit-learn-0.18.2
 python setup.py install --prefix $yourpath # To install in your directory use
 ```
 ### Other dependencies
-Beyond that, you also need to install other popular softwares, such as `Modeller` (https://salilab.org/modeller/), `dssp` for SA and `biopython-1.70` for `HSExposure` module.
+Beyond that, you also need to install other popular softwares, such as `Modeller` (https://salilab.org/modeller/), `dssp` for SA and `biopython` for `HSExposure` module.
