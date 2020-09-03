@@ -5,7 +5,7 @@ In RECDS, we ranked all of the HA sites by calculating the contribution scores d
 
 Copyright of `RECDS` scripts in code dir, including how to extract features, train model and color trees, are reserved by Aiping Wu lab.
 
-***Important: when you use it you should modify python script files and set some paths based on your computing environment and third-party software installation.***
+***Important: The project uses `python 2.7` interpreter and when you use it you should modify python script files and set some paths based on your computing environment and third-party software installation.***
 
 The repo contains the following directories:
 
@@ -37,7 +37,7 @@ _Liu, M., et al. Antigenic Patterns and Evolution of the Human Influenza A (H1N1
 
 ## 2. Pipeline and result of the project
 
-Source code of the `RECDS` pipeline can be found in `code/sourceCode/script/`. The major steps includes a) features extracting, b) GBC model training and c) phylogenetic tree coloring. The dependency scripts can be found in `code/sourceCode/python/` and `tools/`.
+The pipeline uses `python 2.7` interpreter. Source code of the `RECDS` pipeline can be found in `code/sourceCode/script/`. The major steps includes a) features extracting, b) GBC model training and c) phylogenetic tree coloring. The dependency scripts can be found in `code/sourceCode/python/` and `tools/`.
 
 ### a) Features extracting:
 
@@ -140,22 +140,38 @@ Use the features extracted in the previous steps to train Gradient Boost Classif
 
 ### c) Custom-made phylogenetic analysis.
 
-Build phylogenetic tree, plot and color the tree according to the amino acid type of the candidate positions
+Build phylogenetic tree, plot and color the tree according to the amino acid type of the candidate positions.
 
 1. The phylogenetic trees of `A/H3N2` and `A/H1N1` were built under a GTR substitution model using `RAxML` (version 8.2.9). The GAMMA model of rate heterogeneity and other model parameters were estimated by `RAxML`.
 2. The dedicated phylogenetic visualization R package `ggtree` (v1.6.1) was used to make the plot.
 3. The result can be found in `colorTree.zip`.
 
 
-## 3. Third-party software installation:  
-While the majority of programs in the package `code/sourceCode/` are developed in the Aiping Wu lab here in the permission of use is released, there are some programs and databases which were developed by third-party groups. You may experience nstallation problems, please check the third-party websites.   
+## 3. Third-party software installation:
+While the majority of programs in the package `code/sourceCode/` are developed in the Aiping Wu lab here in the permission of use is released, there are some programs and databases which were developed by third-party groups. You may experience nstallation problems, please check the third-party websites.
+
+### Install python dependencies
+Python modules `pandas`, `biopython` and `scikit-learn` are required. Installation using `pip` is recommended.
+```bash
+pip install pandas biopython scikit-learn
+```
+
+### Install Modeller
+The homologous modelling for protein 3D structure is implemented by `Modeller`. The download and installation can be found at https://salilab.org/modeller/. `Modeller` is written in python and C can be import as a python module.
+
+### Install dssp
+The calculation of relative solvent accessibility (RSA) for protein residuals needs `dssp`. The download and installation can be found at  https://swift.cmbi.umcn.nl/gv/dssp/. Or the pre-complied package can be installed on Linux machine:
+
+```bash
+sudo apt-get install dssp
+```
 
 ### Install SEF
-We calculated ∆∆G denoting a protein stability change upon the single point mutation through the statistical energy function (SEF). This software is developed by Xiong Peng, and he modified application program interfaces (APIs) from original program for our use. So, the input is very simple, which just need protein structure and mutation information (wild type, position, mutant type). We have obtained his approval to open his modified software with our works and its software can be downloaded at https://drive.google.com/open?id=1Hls89AV6r5DNMXyDfC-qv4YhxkW_iaov. If you use SEF, please kindly cite as following:  
+We calculated ∆∆G denoting a protein stability change upon the single point mutation through the statistical energy function (SEF). This software is developed by Xiong Peng, and he modified application program interfaces (APIs) from original program for our use. So, the input is very simple, which just need protein structure and mutation information (wild type, position, mutant type). We have obtained his approval to open his modified software with our works and its software can be downloaded at https://drive.google.com/open?id=1Hls89AV6r5DNMXyDfC-qv4YhxkW_iaov. If you use SEF, please kindly cite as following:
 
 _Xiong, P., et al., Protein design with a comprehensive statistical energy function and boosted by experimental selection for foldability. Nat Commun, 2014. 5: p. 5330_
 
-### Install Amber  
+### Install Amber
 Fill out the form from http://ambermd.org/GetAmber.php and click Download.   
 ```bash
 tar -jxvf AmberTools14.tar.bz2
@@ -169,14 +185,3 @@ source amber.sh
 make install
 make test  # which will run tests and will report successes or failures
 ```
-
-### Install scikit-learn  
-`scikit-learn` requires: `Python` (>= 2.6 or >= 3.3), `NumPy` (>= 1.6.1), `SciPy` (>= 0.9); Here is one way to install
-```bash
-wget https://files.pythonhosted.org/packages/26/c2/21c612f3a1b1ba97b7b4bbd1fcdc59b475a09e25efad13fec4565ab9d563/scikit-learn-0.18.2.tar.gz
-tar zxvf scikit-learn-0.18.2.tar.gz
-cd scikit-learn-0.18.2
-python setup.py install --prefix $yourpath # To install in your directory use
-```
-### Other dependencies
-Beyond that, you also need to install other popular softwares, such as `Modeller` (https://salilab.org/modeller/), `dssp` for SA and `biopython` for `HSExposure` module.
