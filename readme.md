@@ -1,13 +1,13 @@
-# INSTALLATION AND IMPLEMENTATION OF RECDS and Third-party software
+# REcognition of Cluster-transition Determining Sites (RECDS)
 
 `RECDS` evaluate the contribution of a specific amino acid site on the HA protein in the whole history of antigenic evolution.
-In RECDS, we ranked all of the HA sites by calculating the contribution scores derived from the forest of gradient boosting classifiers trained by various sequence-based and structure-based features. 
+In `RECDS`, we ranked all of the HA sites by calculating the contribution scores derived from the forest of Gradient Boosting Classifiers trained by various sequence-based and structure-based features.
 
 Copyright of `RECDS` scripts in code dir, including how to extract features, train model and color trees, are reserved by Aiping Wu lab.
 
-***Important: The project uses `python 2.7` interpreter and when you use it you should modify python script files and set some paths based on your computing environment and third-party software installation.***
+***Important: The project uses `python 2.7` interpreter and when you run the pipeline, you should modify python script files and set some paths based on your computing environment and third-party software installation.***
 
-The repo contains the following directories:
+The repo contains the following:
 
 
 ## 1. Raw data used in this project
@@ -16,7 +16,7 @@ The antigenic clustering and raw sequence used in `RECDS` can be found in `datas
 
 ### H3N2
 
-`H3N2AntigenicCluster.strains`: The strain names of `A/H3N2` used by `RECDS`
+`H3N2AntigenicCluster.strains`: The strain names of *A/H3N2* used by `RECDS`
 
 `H3N2/source/`: Seven antigenic clusters derived from Smith’s studies including raw HA1 protein sequences.
 
@@ -26,7 +26,7 @@ _Koel, B.F., et al. Substitutions near the receptor binding site determine major
 
 ### H1N1
 
-`H1N1AntigenicCluster.strains`: The strain names of `A/H1N1` used by `RECDS`
+`H1N1AntigenicCluster.strains`: The strain names of *A/H1N1* used by `RECDS`
 
 `H1N1/source/`: Seven antigenic clusters derived from our previous studies including raw HA1 protein sequences.
 
@@ -142,16 +142,17 @@ Use the features extracted in the previous steps to train Gradient Boost Classif
 
 Build phylogenetic tree, plot and color the tree according to the amino acid type of the candidate positions.
 
-1. The phylogenetic trees of `A/H3N2` and `A/H1N1` were built under a GTR substitution model using `RAxML` (version 8.2.9). The GAMMA model of rate heterogeneity and other model parameters were estimated by `RAxML`.
+1. The phylogenetic trees of *A/H3N2* and *A/H1N1* were built under a GTR substitution model using `RAxML` (version 8.2.9). The GAMMA model of rate heterogeneity and other model parameters were estimated by `RAxML`.
 2. The dedicated phylogenetic visualization R package `ggtree` (v1.6.1) was used to make the plot.
 3. The result can be found in `colorTree.zip`.
 
 
 ## 3. Third-party software installation:
-While the majority of programs in the package `code/sourceCode/` are developed in the Aiping Wu lab here in the permission of use is released, there are some programs and databases which were developed by third-party groups. You may experience nstallation problems, please check the third-party websites.
+While the majority of programs in the package `code/sourceCode/` are developed in the Aiping Wu lab here in the permission of use is released, there are some programs and databases which were developed by third-party groups. You may experience installation problems, please check the third-party websites.
 
 ### Install python dependencies
 Python modules `pandas`, `biopython` and `scikit-learn` are required. Installation using `pip` is recommended.
+
 ```bash
 pip install pandas biopython scikit-learn
 ```
@@ -172,7 +173,8 @@ We calculated ∆∆G denoting a protein stability change upon the single point 
 _Xiong, P., et al., Protein design with a comprehensive statistical energy function and boosted by experimental selection for foldability. Nat Commun, 2014. 5: p. 5330_
 
 ### Install Amber
-Fill out the form from http://ambermd.org/GetAmber.php and click Download.   
+Fill out the form from http://ambermd.org/GetAmber.php and click Download.
+
 ```bash
 tar -jxvf AmberTools14.tar.bz2
 rm AmberTools14.tar.bz2
